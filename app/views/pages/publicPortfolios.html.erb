@@ -1,0 +1,44 @@
+<h1>The Latest Portfolios</h1>
+
+<%= form_tag pages_publicPortfolios_path, :method => :get do %>
+  <p>
+    <div class="form-group">
+      <%= text_field_tag :search, params[:search], class: "form-control2 one-line"%>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-primary one-line sml-btn"%>
+      <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Search on either portfolio name or user email. Search term MUST match EXACTLY."></span>
+    </div>
+  </p>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Portfolio Name</th>
+      <th>Portfolio Description</th>
+      <th>Author</th>
+      <th>More</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publicPortfolios.each do |portfolio| %>
+      <tr>
+        <td><%= portfolio.name %></td>
+        <td><%= portfolio.description %></td>
+        <td><%= User.find_by_id(portfolio.user_id).email %></td>
+        <td><a href=<%= portfolio.publicLink %>>More</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+
+
+<br>
+<br>
+
+
+

@@ -1,0 +1,32 @@
+%p
+  %strong Name:
+  = @group.name
+%p
+  %strong Description:
+  = @group.description
+%p
+  %strong Group Icon:
+  = image_tag @group.group_icon.url(:thumb)
+  
+- if @group.projs.size > 0
+  %h2 Group '#{@group.name}' Projects
+  %table{:class => "table table-striped"}
+    %thead
+      %tr
+        %th Name          
+        %th Description
+        %th Begin Date
+        %th End Date
+      %tbody
+        - @group.projs.each do |project|
+          %tr
+            %td= project.name 
+            %td= project.description
+            %td= project.begin_date.strftime("%b %d, %Y")
+            %td= project.end_date.strftime("%b %d, %Y")
+  
+  
+  
+= link_to 'Edit', edit_group_path(@group)
+|
+= link_to 'Back', groups_path

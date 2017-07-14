@@ -1,0 +1,1416 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+  background-color: #efefef;
+  min-height: 100vh;
+}
+
+.navbar-default {
+    background-color: #efefef;
+    border: 0px;
+}
+
+.form-control2 {
+    @extend .form-control;
+    width: 80%;
+}
+
+.one-line {
+    display: inline;
+}
+
+.sml-btn{
+    width: 17%;
+}
+
+.test {
+    display: inline;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+div.container {
+    min-height: 95vh;
+    //border: 1px solid #c3c3c3;
+    width: 60vw;
+}
+
+div.container.special {
+    width: 75vw
+    
+}
+
+div.panel{
+    height: 100%;
+}
+
+div.buttons {
+    //border: 1px solid #c3c3c3;
+    border-radius: 50px;
+    //background-color: #fffb9b;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align:center;
+}
+
+div.cssBox {
+    //border: 1px solid #c3c3c3;
+    border-radius: 50px;
+    //background-color: #fffb9b;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align:center;
+    min-height: 75vh;
+}
+
+.button {
+    //background-color: #000000;
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+
+
+.nav-btn {
+    width: 75%;
+    height: 15vh;
+//    border-radius: 100px;
+//    border-width: 2px;
+//    border-color: black;
+    font-size: 50px;
+//    color: black;
+//    transition: 0.3s;
+//    opacity: .9;
+}
+
+//.project-btn {
+//    @extend .nav-btn;
+//    background-color: #9ecbff;
+//}
+
+//.group-btn {
+//    @extend .nav-btn;
+//    background-color: #9ecbff;
+//}
+
+//.portfolio-btn {
+//    @extend .nav-btn;
+//    background-color: #9ecbff;
+//}
+
+//.nav-btn:hover {
+//    background-color: black;
+//    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+//    color: #f1f1f1;
+//    opacity: 1;
+//}
+
+
+a {
+  color: blue;
+  text-decoration: none;
+
+  &:hover {
+    color: purple;
+    text-decoration: underline;
+  }
+}
+
+.button_to {
+  display: inline;
+
+}
+
+.button_to div {
+  display: inline;
+}
+
+input.black {
+    background-color: black;
+    color: black;
+}
+
+input.small {
+    width: 20vh;
+    height: 20vh;
+}
+
+input.medium {
+    width: 40vh;
+    height: 40vh;
+}
+
+input.large {
+    width: 60vh;
+    height: 60vh;
+}
+
+input.buttonSmall {
+    width: 15vh;
+    height: 15vh;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+input.buttonSmall:hover {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.buttonMedium {
+    width: 30vh;
+    height: 30vh;
+    background-color: white;
+    color: black;
+    border: 2px solid #999999;
+}
+
+input.buttonMedium:hover {
+    background-color: #999999;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+input.blackHov:hover {
+    background-color: black;
+    color: white;
+}
+
+input.buttonLarge {
+    width: 45vh;
+    height: 45vh;
+    background-color: white;
+    color: black;
+    border: 2px solid #000000;
+}
+
+input.buttonLarge:hover {
+    background-color: #000000;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.button-add {
+    //background-image: url(http://shushi168.com/data/out/230/37313354-usa-images.png);
+    //background-color: transparent; /* make the button transparent */
+    background-repeat: no-repeat;  /* make the background image appear only once */
+    //background-position: 0px 0px;  /* equivalent to 'top left' */
+    //border: none;           /* assuming we don't want any borders */
+    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    //height: 16px;           /* make this the size of your image */
+    //padding-left: 16px;     /* make text start to the right of the image */
+    //vertical-align: bottom; /* align the text vertically centered */
+    background-position: center; 
+    //padding-top: 100px;
+}
+
+input.animated {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+input.animated span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+input.animated:hover span {
+  padding-right: 25px;
+}
+
+input.animated:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+//text-align: center;
+
+.sidenav {
+    height: 90%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #222;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    
+}
+
+.sidenav2 {
+    height: 0%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #222;
+    //overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    //font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidenav-label {
+    color: #818181;
+}
+
+
+
+.clickable {
+    text-decoration: none;
+    cursor: pointer;
+    color: #818181;
+    transition: 0.3s;
+}
+
+.clickable:hover, .sidenav-label:hover{
+    color: #f1f1f1;
+}
+
+.sidenav-submit {
+    width: 19.9vw;
+    height: 5vh;
+    position: fixed;
+    left: -1000px;
+    top: 90%;
+    transition: 1.5s;
+    border-radius: 0px;
+}
+
+.backButton {
+    width: 19.9vw;
+    height: 5vh;
+    position: fixed;
+    left: -1000px;
+    top: 95%;
+    transition: 1.5s;
+    border-radius: 0px;
+}
+
+.backButton-show {
+    width: 19.9vw;
+    height: 5vh;
+    position: fixed;
+    left: 0;
+    top: 95%;
+    border-radius: 0px;
+}
+
+.backNav {
+    height: 90%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+}
+
+.openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 70px;
+    left: 10px;
+}
+
+.refreshbtn {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 70px;
+    right: 10px;
+}
+
+.special {
+    top: 60px;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+}
+
+input.smallRed {
+    background-color: red;
+    color: black;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumRed {
+    background-color: red;
+    color: black;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeRed {
+    background-color: red;
+    color: black;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallOrange {
+    background-color: orange;
+    color: black;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumOrange {
+    background-color: orange;
+    color: black;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeOrange {
+    background-color: orange;
+    color: black;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallYellow {
+    background-color: yellow;
+    color: black;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumYellow {
+    background-color: yellow;
+    color: black;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeYellow {
+    background-color: yellow;
+    color: black;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallGreen {
+    background-color: #00FF7F;
+    color: white;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumGreen {
+    background-color: #00FF7F;
+    color: white;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeGreen {
+    background-color: #00FF7F;
+    color: white;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallIndigo {
+    background-color: #4B0082;
+    color: white;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumIndigo {
+    background-color: #4B0082;
+    color: white;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeIndigo {
+    background-color: #4B0082;
+    color: white;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallViolet {
+    background-color: #EE82EE;
+    color: white;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumViolet {
+    background-color: #EE82EE;
+    color: white;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeViolet {
+    background-color: #EE82EE;
+    color: white;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallBlack {
+    background-color: black;
+    color: white;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumBlack {
+    background-color: black;
+    color: white;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeBlack {
+    background-color: black;
+    color: white;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallGrey {
+    background-color: #D3D3D3;
+    color: black;
+    width: 20vh;
+    height: 20vh;
+}
+
+input.mediumGrey {
+    background-color: #D3D3D3;
+    color: black;
+    width: 30vh;
+    height: 30vh;
+}
+
+input.largeGrey {
+    background-color: #D3D3D3;
+    color: black;
+    width: 40vh;
+    height: 40vh;
+}
+
+input.smallWideRed {
+    background-color: red;
+    color: black;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideRed {
+    background-color: red;
+    color: black;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideRed {
+    background-color: red;
+    color: black;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallWideOrange {
+    background-color: orange;
+    color: black;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideOrange {
+    background-color: orange;
+    color: black;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideOrange {
+    background-color: orange;
+    color: black;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallWideYellow {
+    background-color: yellow;
+    color: black;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideYellow {
+    background-color: yellow;
+    color: black;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideYellow {
+    background-color: yellow;
+    color: black;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallWideGreen {
+    background-color: #00FF7F;
+    color: white;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideGreen {
+    background-color: #00FF7F;
+    color: white;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideGreen {
+    background-color: #00FF7F;
+    color: white;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallWideBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallWideBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallWideIndigo {
+    background-color: #4B0082;
+    color: white;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideIndigo {
+    background-color: #4B0082;
+    color: white;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideIndigo {
+    background-color: #4B0082;
+    color: white;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallWideViolet {
+    background-color: #EE82EE;
+    color: white;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideViolet {
+    background-color: #EE82EE;
+    color: white;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideViolet {
+    background-color: #EE82EE;
+    color: white;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallWideBlack {
+    background-color: black;
+    color: white;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideBlack {
+    background-color: black;
+    color: white;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideBlack {
+    background-color: black;
+    color: white;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallWideGrey {
+    background-color: #D3D3D3;
+    color: black;
+    width: 50vh;
+    height: 20vh;
+}
+
+input.mediumWideGrey {
+    background-color: #D3D3D3;
+    color: black;
+    width: 50vh;
+    height: 30vh;
+}
+
+input.largeWideGrey {
+    background-color: #D3D3D3;
+    color: black;
+    width: 50vh;
+    height: 40vh;
+}
+
+input.smallTallRed {
+    background-color: red;
+    color: black;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallRed {
+    background-color: red;
+    color: black;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallRed {
+    background-color: red;
+    color: black;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.smallTallOrange {
+    background-color: orange;
+    color: black;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallOrange {
+    background-color: orange;
+    color: black;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallOrange {
+    background-color: orange;
+    color: black;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.smallTallYellow {
+    background-color: yellow;
+    color: black;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallYellow {
+    background-color: yellow;
+    color: black;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallYellow {
+    background-color: yellow;
+    color: black;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.smallTallGreen {
+    background-color: #00FF7F;
+    color: white;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallGreen {
+    background-color: #00FF7F;
+    color: white;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallGreen {
+    background-color: #00FF7F;
+    color: white;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.smallTallBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.smallTallBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallBlue {
+    background-color: #1E90FF;
+    color: white;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.smallTallIndigo {
+    background-color: #4B0082;
+    color: white;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallIndigo {
+    background-color: #4B0082;
+    color: white;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallIndigo {
+    background-color: #4B0082;
+    color: white;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.smallTallViolet {
+    background-color: #EE82EE;
+    color: white;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallViolet {
+    background-color: #EE82EE;
+    color: white;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallViolet {
+    background-color: #EE82EE;
+    color: white;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.smallTallBlack {
+    background-color: black;
+    color: white;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallBlack {
+    background-color: black;
+    color: white;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallBlack {
+    background-color: black;
+    color: white;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.smallTallGrey {
+    background-color: #D3D3D3;
+    color: black;
+    width: 20vh;
+    height: 50vh;
+}
+
+input.mediumTallGrey {
+    background-color: #D3D3D3;
+    color: black;
+    width: 30vh;
+    height: 50vh;
+}
+
+input.largeTallGrey {
+    background-color: #D3D3D3;
+    color: black;
+    width: 40vh;
+    height: 50vh;
+}
+
+input.hoverRed:hover {
+    background-color: red;
+    color: black;
+}
+
+input.hoverOrange:hover {
+    background-color: orange;
+    color: black;
+}
+
+input.hoverYellow:hover {
+    background-color: yellow;
+    color: black;
+}
+
+input.hoverGreen:hover {
+    background-color: #00FF7F;
+    color: white;
+}
+
+input.hoverBlue:hover {
+    background-color: #1E90FF;
+    color: white;
+}
+
+input.hoverIndigo:hover {
+    background-color: #4B0082;
+    color: white;
+}
+
+input.hoverViolet:hover {
+    background-color: #EE82EE;
+    color: white;
+}
+
+input.hoverBlack:hover {
+    @extend .button;
+    background-color: black;
+    color: white;
+}
+
+input.hoverGrey:hover {
+    background-color: #D3D3D3;
+    color: black;
+}
+
+input.shadowRed:hover {
+    box-shadow: 0 12px 16px 0 red, 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.shadowOrange:hover {
+    box-shadow: 0 12px 16px 0 orange, 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.shadowYellow:hover {
+    box-shadow: 0 12px 16px 0 yellow, 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.shadowGreen:hover {
+    box-shadow: 0 12px 16px 0 #00FF7F, 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.shadowBlue:hover {
+    box-shadow: 0 12px 16px 0 #4B0082, 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.shadowIndigo:hover {
+    box-shadow: 0 12px 16px 0 #4B0082, 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.shadowViolet:hover {
+    box-shadow: 0 12px 16px 0 #EE82EE, 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.shadowBlack:hover {
+    box-shadow: 0 12px 16px 0 black, 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input.shadowGrey:hover {
+    box-shadow: 0 12px 16px 0 #D3D3D3, 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.navbar-label {
+    color: white;
+}
+
+.formButtons {
+    display: inline-block;
+    width: 100%;
+}
+
+.ctrlButtons {
+    width: 30%;
+    display: inline-block;
+    text-align:center;
+}
+
+
+.Round {
+	width: 15vw;
+	height: 15vw;
+	padding-top: 30px;		
+	text-decoration: none;		
+	text-align: center;
+	font-size: 25px;		
+	text-shadow: 0 1px 0 rgba(255,255,255,.7);
+	letter-spacing: -.065em;
+	font-family: "Hammersmith One", sans-serif;		
+	-webkit-transition: .25s ease-in-out;
+	-o-transition: .25s ease-in-out;
+	-moz-transition: .25s ease-in-out;
+	transition: .25s ease-in-out;
+	box-shadow: 2px 2px 7px rgba(0,0,0,.2);
+	border-radius: 300px;
+	z-index: 1;
+	border-width: 4px;
+	border-style: solid;
+}
+
+.Round:hover {
+	width: 20vw;
+	height: 20vw;
+	left: -5%;
+	top: -5%;
+	font-size: 33px;
+	padding-top: 38px;
+	-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+	-o-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+	-moz-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+	box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+	z-index: 2;
+	border-size: 10px;
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+}
+
+.Red {
+    @extend .Round;
+	background-color: rgba(239,57,50,1);
+	color: rgba(133,32,28,1);
+	border-color: rgba(133,32,28,.2);
+}
+
+.Red:hover {
+	color: black;
+}
+
+.Blue {
+    @extend .Round;
+	background-color: rgba(1,151,171,1);
+	color: rgba(0,63,71,1);
+	border-color: rgba(0,63,71,.2);
+}
+
+.Blue:hover {
+	color: black;
+}
+
+.Yellow {
+    @extend .Round;
+	background-color: rgba(252,227,1,1);
+	color: rgba(153,38,0,1);
+	border-color: rgba(153,38,0,.2);
+}
+
+.Yellow:hover {
+	color: black;
+}
+
+.Round span.Round {
+	display: block;
+	opacity: 0;
+	-webkit-transition: .5s ease-in-out;
+	-moz-transition: .5s ease-in-out;
+	-o-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+	font-size: 1px;
+	border: none;
+	padding: 40% 20% 0 20%;
+	color: #fff;
+}
+
+.Round span:hover {
+	opacity: .85;
+	font-size: 16px;
+	-webkit-text-shadow: 0 1px 1px rgba(0,0,0,.5);
+	-moz-text-shadow: 0 1px 1px rgba(0,0,0,.5);
+	-o-text-shadow: 0 1px 1px rgba(0,0,0,.5);
+	text-shadow: 0 1px 1px rgba(0,0,0,.5);	
+}
+
+.Blue span {
+	background: rgba(0,63,71,.7);		
+}
+
+.Red span {
+	background: rgba(133,32,28,.7);		
+}
+
+.Yellow span {
+	background: rgba(161,145,0,.7);	
+
+}
+
+.holding {
+	list-style: none;
+	position: relative;
+	display: inline-block;
+	width: 15vw;
+	height: 15vw;
+	padding-left: 5vw;
+	margin: 2%;
+	
+}
+
+.round {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding-top: 30px;		
+	text-decoration: none;		
+	text-align: center;
+	font-size: 25px;		
+	text-shadow: 0 1px 0 rgba(255,255,255,.7);
+	letter-spacing: -.065em;
+	font-family: "Hammersmith One", sans-serif;		
+	-webkit-transition: all .25s ease-in-out;
+	-o-transition: all .25s ease-in-out;
+	-moz-transition: all .25s ease-in-out;
+	transition: all .25s ease-in-out;
+	box-shadow: 2px 2px 7px rgba(0,0,0,.2);
+	border-radius: 300px;
+	z-index: 1;
+	border-width: 4px;
+	border-style: solid;
+}
+
+.round:hover {
+	width: 130%;
+	height: 130%;
+	left: -15%;
+	top: -15%;
+	font-size: 33px;
+	padding-top: 38px;
+	-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+	-o-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+	-moz-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+	box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+	z-index: 2;
+	border-size: 10px;
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+	background-color: rgba(1,151,171,1);
+	color: rgba(1,151,171,.5);
+}
+
+.red {
+	background-color: rgba(239,57,50,1);
+	color: rgba(133,32,28,1);
+	border-color: rgba(133,32,28,.2);
+}
+
+.red:hover {
+	color: rgba(239,57,50,1);
+}
+
+.green {
+	background-color: rgba(1,151,171,1);
+	color: rgba(0,63,71,1);
+	border-color: rgba(0,63,71,.2);
+}
+
+.green:hover {
+	color: rgba(1,151,171,1);
+}
+
+.yellow {
+	background-color: rgba(252,227,1,1);
+	color: rgba(153,38,0,1);
+	border-color: rgba(153,38,0,.2);
+}
+
+.yellow:hover {
+	color: rgba(252,227,1,1);
+}
+
+.round span.round {
+	display: block;
+	opacity: 0;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+	font-size: 1px;
+	border: none;
+	padding: 40% 20% 0 20%;
+	color: #fff;
+	background-color: rgba(1,151,171,0);
+}
+
+.round span:hover {
+	opacity: .85;
+	font-size: 20px;
+	-webkit-text-shadow: 0 1px 1px rgba(0,0,0,.5);
+	-moz-text-shadow: 0 1px 1px rgba(0,0,0,.5);
+	-o-text-shadow: 0 1px 1px rgba(0,0,0,.5);
+	text-shadow: 0 1px 1px rgba(0,0,0,.5);	
+}
+
+.green span {
+	background: rgba(0,63,71,.7);		
+}
+
+.red span {
+	background: rgba(133,32,28,.7);		
+}
+
+.yellow span {
+	background: rgba(161,145,0,.7);	
+
+}
+
+.Hawks {
+    width: 30%;
+    height: 20vh;
+	position: staic;
+	padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+	border-radius: 10px;
+	font-family: 'Pacifico', cursive;
+	font-size: 20px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #ffe100;
+	border-color: #D1B358;
+	border-width: 5px;
+	border-bottom: 20px solid black;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.Hawks:active {
+	transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+}
+
+.Hawks:hover {
+    background-color: #ffe100;
+    color: black;
+}
+
+
+//.flexBox {
+//    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+//    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+//    display: -ms-flexbox; /* TWEENER - IE 10 */
+//    display: -webkit-flex; /* NEW - Chrome */
+//    display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+//    align-items: center;
+//    width: 100%;
+//}
+//
+//.droptown {
+//    -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+//    -moz-box-flex: 1; /* OLD - Firefox 19- */
+//    -webkit-flex: 1; /* Chrome */
+//    -ms-flex: 1; /* IE 10 */
+//    flex: 1; /* NEW, */
+//    margin-right: 4px;
+//}

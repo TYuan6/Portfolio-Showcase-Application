@@ -1,0 +1,39 @@
+<h1>Styles Page</h1>
+
+<div class = "buttons">
+    <%= button_to 'Button Test', pages_styles_path, method: :get, :class =>'button large button-add'%>
+    <!--'<button type="button">Manage portfolios</button>'-->
+    <%= button_to '<span>Button Test 2</span>'.html_safe, pages_styles_path, method: :get, :class =>'button medium animated'%>
+    <%= button_to 'Button Small', pages_styles_path, method: :get, :class =>'button buttonSmall'%>
+    <%= button_to 'Button Medium', pages_styles_path, method: :get, :class =>'button buttonMedium'%>
+    <%= button_to 'Button Large', pages_styles_path, method: :get, :class =>'button buttonLarge'%>
+    <%= button_to 'Button Large', pages_styles_path, method: :get, :class =>'button buttonLarge'%>
+    <%= button_to 'Button Large', pages_styles_path, method: :get, :class =>'button buttonLarge'%>
+    <%= button_to 'Button Medium', pages_styles_path, method: :get, :class =>'button buttonMedium'%>
+    <%= button_to 'Button Large', pages_styles_path, method: :get, :class =>'button buttonLarge'%>
+    <%= button_to 'Button Small', pages_styles_path, method: :get, :class =>'button buttonSmall'%>
+</div>
+
+<!--
+- testObjectAttValue = 'buttonSmall'
+- testObjectRadius = 'border-radius: 25px;'
+- testObjectOpacity = 'opacity: 0.5;'
+- testObjectPositioning = 'position: absolute;'
+- testObjectLeft = 'left: 20%;'
+- testObjectTop = 'top: 50%;'
+- testObjectWidth = 'width: 20%;'
+- testObjectHeight = 'height: 50%;'
+
+= button_to 'Testing Reading Attribute', new_movie_path, method: :get, :class =>"#{testObjectAttValue}", :style => "#{testObjectPositioning+testObjectLeft+testObjectTop+testObjectWidth+testObjectHeight+testObjectRadius+testObjectOpacity}"
+
+- testObjectAttValue = 'buttonSmall'
+- testObjectRadius = 'border-radius: 25px;'
+- testObjectOpacity = 'opacity: 0.5;'
+- testObjectPositioning = 'position: fixed;'
+- testObjectLeft = 'left: 60%;'
+- testObjectTop = 'top: 50%;'
+- testObjectWidth = 'width: 40%;'
+- testObjectHeight = 'height: 30%;'
+
+= button_to 'Testing Reading Attribute', new_movie_path, method: :get, :class =>"#{testObjectAttValue}", :style => "#{testObjectPositioning+testObjectLeft+testObjectTop+testObjectWidth+testObjectHeight+testObjectRadius+testObjectOpacity}"
+-->

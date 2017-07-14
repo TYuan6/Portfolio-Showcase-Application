@@ -1,0 +1,36 @@
+<h1>Listing Videos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th width="300%">Video Title</th>
+      <th width="300%">Video Link</th>
+      <th width="300%">Show</th>
+      <th width="300%">Edit</th>
+      <th width="300%">Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.title %></td>
+        <td><%= video.link %></td>
+        <td><%= link_to 'Show', video %></td>
+        <td><%= link_to 'Edit', edit_video_path(video) %></td>
+        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<%= link_to 'New Video', new_video_path(:project_id =>params[:project_id]), :method => :get %>
+
+<br>
+<br>
+
+<%= link_to 'Back to my project list', projs_path %>
+

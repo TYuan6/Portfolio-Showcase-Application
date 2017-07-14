@@ -1,0 +1,10 @@
+
+%br
+%br
+%br
+sharing link for #{@portfolio.name}:
+%a{:href => "#{@hostname}/myportfolio/groups/#{@portfolio.token}"} #{@hostname}/myportfolio/groups/#{@portfolio.token}
+
+#mySidenav.sidenav.navbar-inverse
+  .cssBox
+    = button_to "Back To Portfolio", portfolios_path, :method => :get, :class =>"backButton-show btn btn-primary", :id => "back"

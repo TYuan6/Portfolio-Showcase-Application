@@ -1,0 +1,21 @@
+<div class = "buttons">
+    <% @visible_css_static.each do |css| %>
+        <% if css.background == true %>
+            <%= button_to css.group.name, myportfolio_project_link_path(@token,css.group_id), method: :get, :class =>"button #{css.defaultStyle} #{css.boxShadow} #{css.hover} button-add", :style =>"position: #{css.position}; width: #{css.width}%; height: #{css.height}vh; top: #{css.top}%; left: #{css.left}%; font-family: #{css.font}; font-size: #{css.fontSize}%; color: #{css.color}; background-color: #{css.backgroundColor}; opacity: #{css.opacity}; border-radius: #{css.borderRadius}%; border-color: #{css.borderColor}; border-width: #{css.borderSize}px; border-color: #{css.borderColor}; background-image: url(#{css.group.group_icon.url()});"%>
+        <% else %>
+            <%= button_to css.group.name, myportfolio_project_link_path(@token,css.group_id), method: :get, :class =>"button #{@portfolio.template} #{css.defaultStyle} #{css.boxShadow} #{css.hover}", :style =>"visibility: #{css.visible}; position: #{css.position}; width: #{css.width}%; height: #{css.height}vh; top: #{css.top}%; left: #{css.left}%; font-family: #{css.font}; font-size: #{css.fontSize}; color: #{css.color}; background-color: #{css.backgroundColor}; opacity: #{css.opacity}; border-radius: #{css.borderRadius}%; border-color: #{css.borderColor}; border-width: #{css.borderSize}px; border-color: #{css.borderColor};"%>
+        <% end %>
+    <% end %>
+    <% @visible_css_not_static.each do |css| %>
+        <% if css.background == true %>
+            <%= button_to css.group.name, myportfolio_project_link_path(@token,css.group_id), method: :get, :class =>"button #{@portfolio.template} #{css.defaultStyle} #{css.boxShadow} #{css.hover} button-add", :style =>"position: #{css.position}; width: #{(css.width == "") ? "" : css.width.to_i()*0.6}%; height: #{css.height}vh; top: #{css.top.to_i()+8}%; left: #{css.left.to_i()*0.6+20}%; font-family: #{css.font}; font-size: #{css.fontSize}%; color: #{css.color}; background-color: #{css.backgroundColor}; opacity: #{css.opacity}; border-radius: #{css.borderRadius}%; border-color: #{css.borderColor}; border-width: #{css.borderSize}px; border-color: #{css.borderColor}; background-image: url(#{css.group.group_icon.url()});"%>
+        <% else %>
+            <%= button_to css.group.name, myportfolio_project_link_path(@token,css.group_id), method: :get, :class =>"button #{@portfolio.template} #{css.defaultStyle} #{css.boxShadow} #{css.hover}", :style =>"visibility: #{css.visible}; position: #{css.position}; width: #{(css.width == "") ? "" : css.width.to_i()*0.6}%; height: #{css.height}vh; top: #{css.top.to_i()+8}%; left: #{css.left.to_i()*0.6+20}%; font-family: #{css.font}; font-size: #{css.fontSize}; color: #{css.color}; background-color: #{css.backgroundColor}; opacity: #{css.opacity}; border-radius: #{css.borderRadius}%; border-color: #{css.borderColor}; border-width: #{css.borderSize}px; border-color: #{css.borderColor};"%>
+        <% end %>
+    <% end %>
+</div>
+
+
+<div id="mySidenav" class="backNav">
+    <%= button_to "Back To Public Portfolios", pages_publicPortfolios_path(@portfolio.token), :method => :get, :class =>"backButton-show btn btn-primary", :id => "back"%>
+</div>

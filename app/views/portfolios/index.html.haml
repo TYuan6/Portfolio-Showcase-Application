@@ -1,0 +1,26 @@
+-#  This file is app/views/movies/index.html.haml
+%h1 My Portfolio List
+
+%table{:class => "table table-striped"} 
+  %thead
+    %tr
+      %th Portfolio Name
+      %th Last Updated
+      %th Other
+  %tbody
+    - if @portfolios != nil
+      - @portfolios.each do |portfolio|
+        %tr
+          %td= portfolio.name
+          %td= portfolio.updated_on
+          %td= link_to "Edit", edit_portfolio_path(portfolio.id)
+          %td= link_to "Show", portfolio_group_csses_show_path(portfolio.id)
+          %td= link_to "Edit Styling", portfolio_group_csses_edit_path(portfolio.id)
+          %td= link_to "Delete", portfolio_path(portfolio), :method => :delete, data: {:confirm => "Are you sure to delete Portfolio #{portfolio.name}?"}
+          %td= button_to "Share", generateLink_portfolios_path(portfolio), :method => :get
+%br
+
+= link_to 'Add new portfolio', new_portfolio_path
+%br
+%br
+= link_to 'Back to Home Page', root_path

@@ -1,0 +1,86 @@
+
+
+
+<div class= "form-group">
+  <%= label :portfolio, :name, 'Name' %>
+  <br>
+  <%= text_field :portfolio, 'name', class: "form-control" %>
+</div>
+<div class= "form-group">
+  <%= label :portfolio, :description, 'Description' %>
+  <br>
+  <%= text_area :portfolio, 'description', {:rows=>6, :cols=>161, class: "form-control"} %>
+</div>
+<%= label :portfolio, 'Portfolio Settings' %>
+<div class= "form-buttons">
+  <div class= "ctrlButtons">
+    <%= label :portfolio, :public_view, 'Public' %>
+    <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Make your portfolio viewable to everyone"></span>
+    <br>
+    <%= check_box 'portfolio', 'public_view', {}, 'true', 'false' %>
+  </div>
+  <div class= "ctrlButtons">
+    <%= label :portfolio, :randomStyle, 'Randomize Styling' %>
+    <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Generate random styles in style edit view, auto-generate until you find one you like"></span>
+    <br>
+    <%= check_box 'portfolio', 'randomStyle', {}, 'true', 'false' %>
+  </div>
+  <div class= "ctrlButtons">
+    <%= label :portfolio, :portfolio_style, 'Use Existing Portfolio Styling:' %>
+    <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Copy the styling info from another portfolio (excludes visibility)"></span>
+    <br>
+    <%= select :portfolio, :portfolio_style, @portfolio_titles, class: "droptown", selected: "" %>
+  </div>
+</div>
+<br>
+<br>
+<%= label :portfolio, 'Portfolio Themes' %>
+<span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Apply a premade theme to the viewing pages of your portfolio."></span>
+<div class= "formButtons">    
+  <div class= "ctrlButtons">
+    <%= label :portfolio, :template, "None" %>
+    <br>
+    <%= radio_button("portfolio", "template", "") %>
+  </div>
+  <%- @templates.each do |template| %>
+    <div class= "ctrlButtons">
+      <%= label :portfolio, :template, template %>
+      <br>
+      <%= radio_button("portfolio", "template", template) %>
+    </div>
+  <% end %>
+</div>
+<br>
+<br>
+<h2>Project Selection List</h2>
+<br>
+<%- @groups.each do |group| %>
+  <h3> <%= group.name %> Projects </h3> 
+  <table class= "table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th> 
+        <th>Begin Date</th> 
+        <th>End Date</th> 
+        <th>Visible?</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <%- @projects.each do |project| %>
+        <%- if project.group.id == group.id %>
+          <tr>
+            <td><%= project.name%></td> 
+            <td><%= project.begin_date.strftime("%b %d, %Y") %></td>
+            <td><%= project.end_date.strftime("%b %d, %Y") %></td>
+            <%- if defined?(@portfolio) %>
+                <td><%= check_box_tag "projects[#{project[:id]}]", 1, @portfolio.proj_csses.find_by_proj_id(project.id).visible %></td>
+            <%- else %>
+                <td class= "group#{group.id}"> <%= check_box_tag "projects[#{project[:id]}]" %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<br>

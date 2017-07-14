@@ -1,0 +1,36 @@
+-#  This file is app/views/movies/index.html.haml
+%h1 My Project List
+
+%table{:class => "table table-striped"}
+  %thead
+    %tr
+      %th Name
+      %th Icon
+      %th Pictures
+      %th Videos
+      %th Group
+      %th More Info
+
+  %tbody
+    - @projects.each do |p|
+      %tr
+        %td= p.name
+        %td= image_tag p.proj_icon.url(:thumb)
+        %td= link_to 'Pictures', pictures_path(:project_id=>p.id), :method => :get
+        %td= link_to 'Videos', videos_path(:project_id=>p.id), :method => :get
+        -if (nil != p.group)
+          %td= p.group.name
+        -else
+          %td= 'Unknown'
+        %td= link_to 'Show', proj_path(:id =>p.id),:method => :get
+        %td= link_to 'Edit', edit_proj_path(:id =>p.id), :method => :get
+        %td= link_to 'Delete', proj_path(:id => p.id), :method => :delete, data: {:confirm => "Are you sure to delete project #{p.name}?"}
+        
+
+
+%br
+= link_to 'Add new project', new_proj_path
+%br
+%br
+= link_to 'Back to Home Page', root_path
+

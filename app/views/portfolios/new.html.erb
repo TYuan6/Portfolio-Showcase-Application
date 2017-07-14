@@ -1,0 +1,10 @@
+
+<h1>New Portfolio</h1> 
+
+<%= form_tag portfolios_path do %>
+  <%= render 'portfolios/settings' %>
+  <%= submit_tag 'Create Portfolio', class: "btn btn-primary" %>
+<% end %>
+<br>
+<br>
+<%= link_to "Back to Home Page", portfolios_path%>

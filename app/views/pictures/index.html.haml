@@ -1,0 +1,21 @@
+%h1 Listing Pictures
+%table{:class => "table table-striped"}
+  %thead
+    %tr
+      %th{:width => "300%"} Icon
+      %th{:width => "200%"} Show
+      %th{:width => "200%"} Edit
+      %th{:width => "200%"} Destroy
+  %tbody
+    - @pictures.each do |picture|
+      %tr
+        %td= image_tag picture.project_img.url(:thumb)
+        %td= link_to 'Show', picture
+        %td= link_to 'Edit', edit_picture_path(picture)
+        %td= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+%br
+= link_to 'New Picture', new_picture_path(:project_id =>params[:project_id]), :method => :get
+%br
+%br
+= link_to 'Back to my project list', projs_path

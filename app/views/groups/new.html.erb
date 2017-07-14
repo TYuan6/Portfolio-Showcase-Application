@@ -1,0 +1,36 @@
+<h1>New Group</h1>
+
+
+<%= form_tag groups_path, method: :post, multipart: true do %>
+
+  <% if @group.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <% @group.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <br>
+  <div class="form-group">
+    <%= label :group, :name, 'Group Name'%>
+    <br>
+    <%= text_field :group, 'name', class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= label :group, :description, 'Description'%>
+    <br>
+    <%= text_area :group, 'description', {:rows=>6, :cols=>161, class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= label :group, :group_icon, 'Group Icon: ' %>
+    <%= file_field :group, :group_icon, class: "btn btn-default form-control" %>
+  </div>
+  <br>
+ 
+  <%= submit_tag 'Create Group', class: "btn btn-primary"%>
+<% end %>
+
+  <br>
+  <br>
+<%= link_to 'Back to Home Page', groups_path %>

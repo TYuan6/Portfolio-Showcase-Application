@@ -1,0 +1,44 @@
+%h1 Editing Project
+
+= form_tag proj_path(:id => @proj.id), :method => :put, multipart: true  do
+  .form-group
+    = label :proj,:name, 'Project Name: '
+    = text_field :proj,:name, :size => 214, :readonly => true, class: "form-control"
+  .form-group
+    -if !@proj.proj_icon_file_name.blank?
+      =image_tag @proj.proj_icon.url(:thumb)
+    = label_tag 'Update project icon'
+    = file_field :proj, :proj_icon, class: "btn btn-default form-control"
+  .form-group
+    = label :proj,:description, 'Description: '
+    = text_area :proj,:description, {:rows=>6, :cols=>213, class: "form-control"}
+  .form-group
+    = label :proj, :impact, 'Impact: '
+    = text_area :proj, :impact, {:rows=>6, :cols=>213, class: "form-control"}
+  .form-group
+    = label :proj, :keywords, 'Keywords: '
+    = text_field :proj, :keywords, :size => 214, class: "form-control"
+  .form-group
+    = label :proj, :collaborator_emails, 'Emails of Collaborators: (use \';\' to separate email) '
+    = text_area :proj, :collaborator_emails, {:rows=>6, :cols=>213, class: "form-control"}
+  .form-group
+    = label :proj, :begin_date, 'Begin Date: '
+    = date_select :proj, :begin_date, class: "droptown"
+  .form-group
+    = label :proj, :end_date, 'End Date: '
+    = date_select :proj, :end_date, class: "droptown"
+  .form-group
+    = label :proj, :group_id, 'Group: '
+    = select :proj, :group_id, @group_array, :selected=>@selected_group, class: "droptown"
+  .form-group
+    = label :proj, :link, 'Http Web Link: '
+    = text_field :proj, :link, :size => 214, :type =>"url", class: "form-control"
+  %br
+  = submit_tag 'Save Changes', class: "btn btn-primary"
+
+%br
+%br
+= link_to 'Show this Project', proj_path(:id =>@proj.id),:method => :get
+%br
+%br
+= link_to 'Back to My Project List', projs_path

@@ -1,0 +1,155 @@
+<%= form_for @portfolio, url: {action: "update"} do |f| %>
+    <div id="mySidenav" class="sidenav navbar-inverse">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="cssBox">
+        
+            <%- @css.each do |proj_css| -%>
+                <%= f.fields_for ("proj_csses" + proj_css.id.to_s()), proj_css do |q| %>
+                    <%- idTemp = "#collapseExample" + proj_css.id.to_s() %>
+                    <h3><span class="label clickable" data-toggle="collapse" href=<%= idTemp %> aria-expanded="false" aria-controls=<%= idTemp[1, (idTemp.size()-1)] %>>
+                             <%= proj_css.proj.name %>
+                            </span></h3>
+                    <div class="collapse" id=<%= idTemp[1, (idTemp.size()-1)] %>>
+                        <div class="card card-block">
+                            <%= q.hidden_field :id, :value => proj_css.id %>
+                            
+                            <div class="form-group">
+                                <%= q.label :visible, 'Visible', class: "sidenav-label" %>
+                                <%= q.check_box :visible, :value => (proj_css.visible ? "1" : "0") %>
+                                <%= q.label :background, "Background Pic", class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Enable Group picture in background.  Overrides Background Color."></span>
+                                <%= q.check_box :background, :value => proj_css.background %>
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :defaultStyle, 'Default Style', class: "sidenav-label"%>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Select a default style for portfolio. This overrides Positioning, Width, Height, Font Color, and Background Color"></span><br>
+                                <%= q.select(:defaultStyle, options_for_select(@defaults, selected: proj_css.defaultStyle), {}, {class: "form-control hi"}) %>
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :position, 'Positioning', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" data-html="true" title="<b>Postion Settings:</b>
+                                                                                                                                                                        <br>
+                                                                                                                                                                        <u>Static:</u> Auto-positions and overrides 'Left' and 'Top'
+                                                                                                                                                                        <br>
+                                                                                                                                                                        <u>Absolute:</u> 'Left' and 'Top' define where it goes on the page
+                                                                                                                                                                        <br>
+                                                                                                                                                                        <u>Fixed:</u> Same as Absolute, but stays in the same spot on the page even when you scroll
+                                                                                                                                                                        <br>"></span><br>
+                                <%= q.select(:position, options_for_select(@positions, selected: proj_css.position), {}, {class: "form-control"}) %>
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :width, 'Width', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Width of the button as a percentage of the display space. (Width + Left) must not exceed 100."></span><br>
+                                <%= q.number_field :width, :value => proj_css.width, class: "form-control" %> 
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :height, 'Height', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Height of the button as a percentage of the display space"></span><br>
+                                <%= q.number_field :height, :value => proj_css.height, class: "form-control" %> 
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :top, 'Top', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Button's distance from the top of the display space"></span><br>
+                                <%= q.number_field :top, :value => proj_css.top.to_i(), class: "form-control" %> 
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :left, 'Left', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Button's distance from the left side of the display space. (Width + Left) must not exceed 100."></span><br>
+                                <%= q.number_field :left, :value => proj_css.left.to_i(), class: "form-control" %> 
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :font, 'Font Type', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="The Font of any text displayed on button"></span><br>
+                                <%= q.select(:font, options_for_select(@fonts, selected: proj_css.font), {}, {class: "form-control"}) %>
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :fontSize, 'Font Size', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="The Size of any text displayed on button"></span><br>
+                                <%= q.number_field :fontSize, :value => proj_css.fontSize, class: "form-control" %> 
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :color, 'Font Color', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="The Color of any text displayed on button"></span><br>
+                                <%= q.color_field :color, :value => proj_css.color, class: "form-control" %> 
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :backgroundColor, 'Background Color', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Background Color of the button"></span><br>
+                                <%= q.color_field :backgroundColor, :value => proj_css.backgroundColor, class: "form-control" %> 
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :opacity, 'Opacity', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Transparency of the button (0.0 is most transparent and 1.0 is least transparent)."></span>
+                                <br>
+                                <%= q.number_field :opacity, :step => 0.1, :value => proj_css.opacity, class: "form-control" %>
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :borderRadius, 'Border Radius', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="The bigger this is, the more rounded the edges of the button are."></span><br>
+                                <%= q.number_field :borderRadius, :value => proj_css.borderRadius, class: "form-control" %> 
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :borderColor, 'Border Color', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="The color of the button's border."></span><br>
+                                <%= q.color_field :borderColor, :value => proj_css.borderColor, class: "form-control" %>
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :borderSize, 'Border Size', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="The size of the button's border."></span><br>
+                                <%= q.number_field :borderSize, :value => proj_css.borderSize, class: "form-control" %> 
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :boxShadow, 'Hover Shadow', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Displays shadow when you mouse over button"></span><br>
+                                <%= q.select(:boxShadow, options_for_select(@shadows, selected: proj_css.boxShadow), {}, {class: "form-control"}) %>
+                            </div>
+                            <div class="form-group">
+                                <%= q.label :hover, 'Hover Background Color', class: "sidenav-label" %>
+                                <span class="glyphicon glyphicon-question-sign", data-toggle="tooltip" data-placement="top" data-trigger="click" title="Background color when you mouse over button.  Overrides Font Color and Background Color."></span><br>
+                                <%= q.select(:hover, options_for_select(@hovers, selected: proj_css.hover), {}, {class: "form-control"}) %>
+                            </div>
+                        </div>
+                    </div>
+                <% end -%>
+            <% end -%>
+        </div>
+    </div>
+
+    <div id="mySidenav2" class="sidenav2 navbar-inverse">
+        <div class="form-group">
+            <br>
+            <%= f.submit "Update Styling", class: "sidenav-submit btn btn-primary", id: "submitCss"%>  
+        </div>
+    </div>
+<% end %>
+    <div id="mySidenav3" class="sidenav2 navbar-inverse">
+        <%= button_to "Back To Groups", portfolio_group_csses_edit_path(@portfolio.id), :method => :get, :class =>"backButton btn btn-primary", :id => "back"%>
+    </div>
+
+
+<% if @randomStyle %>
+    <%= button_to "New Random Style", portfolio_proj_csses_edit_path(@portfolio.id, @groupId), method: :get, :class =>"btn btn-primary, refreshbtn" %>
+<% end %>
+
+<span class = 'openbtn' onclick="openNav()">&#9776; Settings</span>
+
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "20%";
+    $("#submitCss").css({left: 0});
+    $("#back").css({left: 0});
+    
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    $("#submitCss").css({left: -1000});
+    $("#back").css({left: -1000});
+}
+</script>
+
+
+
+<%= render 'proj_csses/projs' %>
+

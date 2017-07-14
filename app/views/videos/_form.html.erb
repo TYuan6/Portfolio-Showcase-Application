@@ -1,0 +1,24 @@
+<%= form_for @video do |f| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <% @video.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+    <div class="form-group">
+      <%= f.label :title, "Title of Video"%><br>
+      <%= f.text_field :title, autofocus: true, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :link, "Link"%><br>
+      <%= f.text_field :link, class: "form-control"%>
+      <%= f.hidden_field :project_id, :value => @current_project.id %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit "Submit" , class: "btn btn-primary"%>
+    </div>
+<% end %>
+

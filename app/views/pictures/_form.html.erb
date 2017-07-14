@@ -1,0 +1,22 @@
+<%= form_for @picture, :html => {:multipart => true} do |f| %> 
+    <% if @picture.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+
+      <% @picture.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+
+    </div>
+   <% end %>
+
+    <div class="form-group">
+      <%= f.label :project_img, "Project Image" %>
+      <br>
+      <%= f.file_field :project_img, class: "form-control" %> 
+      <%= f.hidden_field :project_id, :value => @current_project.id %>
+    </div>
+    <br>
+    <p><%= f.submit "Upload", class: "btn btn-primary" %></p> 
+<% end %>
+
+

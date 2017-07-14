@@ -1,0 +1,19 @@
+<div class = "buttons">
+    <% @visible_css_static.each do |css| %>
+        <% if css.background == true %>
+            <%= button_to css.group.name, @editing? portfolio_proj_csses_edit_path(css.portfolio_id, css.group_id) : portfolio_proj_csses_show_path(css.portfolio_id, css.group_id), method: :get, :class =>"button #{@portfolio.template} #{css.defaultStyle} #{css.boxShadow} #{css.hover}", :style =>"position: #{css.position}; width: #{css.width}%; height: #{css.height}vh; top: #{css.top}%; left: #{css.left}%; font-family: #{css.font}; font-size: #{css.fontSize}%; color: #{css.color}; background-color: #{css.backgroundColor}; opacity: #{css.opacity}; border-radius: #{css.borderRadius}%; border-color: #{css.borderColor}; border-width: #{css.borderSize}px; border-color: #{css.borderColor}; background-image: url(#{css.group.group_icon.url()});"%>
+        <% else %>
+            <%= button_to css.group.name, @editing? portfolio_proj_csses_edit_path(css.portfolio_id, css.group_id) : portfolio_proj_csses_show_path(css.portfolio_id, css.group_id), method: :get, :class =>"button #{@portfolio.template} #{css.defaultStyle} #{css.boxShadow} #{css.hover}", :style =>"visibility: #{css.visible}; position: #{css.position}; width: #{css.width}%; height: #{css.height}vh; top: #{css.top}%; left: #{css.left}%; font-family: #{css.font}; font-size: #{css.fontSize}%; color: #{css.color}; background-color: #{css.backgroundColor}; opacity: #{css.opacity}; border-radius: #{css.borderRadius}%; border-color: #{css.borderColor}; border-width: #{css.borderSize}px; border-color: #{css.borderColor};"%>
+        <% end %>
+    <% end %>
+    <% @visible_css_not_static.each do |css| %>
+        <% if css.background == true %>
+            <%= button_to css.group.name, @editing? portfolio_proj_csses_edit_path(css.portfolio_id, css.group_id) : portfolio_proj_csses_show_path(css.portfolio_id, css.group_id), method: :get, :class =>"button #{@portfolio.template} #{css.defaultStyle} #{css.boxShadow} #{css.hover} button-add", :style =>"position: #{css.position}; width: #{(css.width == "") ? "" : css.width.to_i()*0.6}%; height: #{css.height}vh; top: #{css.top.to_i()+8}%; left: #{css.left.to_i()*0.6+20}%; font-family: #{css.font}; font-size: #{css.fontSize}%; color: #{css.color}; background-color: #{css.backgroundColor}; opacity: #{css.opacity}; border-radius: #{css.borderRadius}%; border-color: #{css.borderColor}; border-width: #{css.borderSize}px; border-color: #{css.borderColor}; background-image: url(#{css.group.group_icon.url()});"%>
+        <% else %>
+            <%= button_to css.group.name, @editing? portfolio_proj_csses_edit_path(css.portfolio_id, css.group.id) : portfolio_proj_csses_show_path(css.portfolio_id, css.group_id), method: :get, :class =>"button #{@portfolio.template} #{css.defaultStyle} #{css.boxShadow} #{css.hover}", :style =>"visibility: #{css.visible}; position: #{css.position}; width: #{(css.width == "") ? "" : css.width.to_i()*0.6}%; height: #{css.height}vh; top: #{css.top.to_i()+8}%; left: #{css.left.to_i()*0.6+20}%; font-family: #{css.font}; font-size: #{css.fontSize}%; color: #{css.color}; background-color: #{css.backgroundColor}; opacity: #{css.opacity}; border-radius: #{css.borderRadius}%; border-color: #{css.borderColor}; border-width: #{css.borderSize}px; border-color: #{css.borderColor};"%>
+        <% end %>
+    <% end %>
+</div>
+
+
+

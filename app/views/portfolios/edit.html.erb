@@ -1,0 +1,12 @@
+<h1>Editing Portfolio</h1> 
+
+<%= form_tag portfolio_path(@portfolio), :method => :put do %>
+  <%= render 'portfolios/settings' %>
+  <%= submit_tag 'Save Changes', class: "btn btn-primary" %>
+<% end %>
+<br>
+<br>
+
+<%= link_to 'Show', @portfolio %>
+|
+<%= link_to 'Back', portfolios_path %>

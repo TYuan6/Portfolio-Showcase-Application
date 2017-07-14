@@ -1,0 +1,10 @@
+<h1>Show Picture</h1>
+
+<%= image_tag @picture.project_img.url(:medium) %>
+
+<br/>
+<br/>
+<%= link_to 'Edit', edit_picture_path(@picture) %>
+<br/>
+<br/>
+<%= link_to 'Back', pictures_path(:project_id=>@project.id) %>

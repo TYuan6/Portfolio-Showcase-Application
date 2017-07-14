@@ -1,0 +1,43 @@
+%h1 New Project
+
+%br
+= form_tag projs_path, method: :post, multipart: true do
+  .form-group
+    = label :proj, :name, 'Project Name: '
+    %br
+    = text_field :proj, :name, :size => 162, class: "form-control"
+  .form-group
+    = label :proj, :proj_icon, 'Project Icon: '
+    = file_field :proj, :proj_icon, class: "btn btn-default form-control"
+  .form-group
+    = label :proj, :description, 'Description: '
+    %br
+    = text_area :proj, :description, {:rows=>6, :cols=>161, class: "form-control"}
+  .form-group
+    = label :proj, :impact, 'Impact: '
+    %br
+    = text_area :proj, :impact, {:rows=>6, :cols=>161, class: "form-control"}
+  .form-group
+    = label :proj, :keywords, 'Keywords: '
+    %br
+    = text_field :proj, :keywords, :size => 162, class: "form-control"
+  .form-group
+    = label :proj, :begin_date, 'Begin Date: '
+    = date_select :proj, :begin_date, class: "droptown"
+  .form-group
+    = label :proj, :end_date, 'End Date: '
+    = date_select :proj, :end_date, class: "droptown"
+  .form-group
+    = label :proj, :group_id, 'Group: '
+    = select :proj, :group_id, @group_array, class: "droptown"
+  .form-group
+    = label :proj, :link, 'Http Web Link: '
+    %br
+    = text_field :proj, :link, {:size => 162, :type =>"url", class: "form-control"}
+  %br
+  = submit_tag 'Create Project', class: "btn btn-primary"
+
+%br
+%br
+
+= link_to 'Back to My Project List', projs_path

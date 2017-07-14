@@ -1,0 +1,84 @@
+%h1 Show my Existing Project  <img src= "#{@proj.proj_icon.url(:thumb)}">
+
+= form_tag proj_path(:id => @proj.id)  do
+  .form-group
+    = label :proj,:name, 'Project Name: '
+    %br
+    = text_field :proj,:name, :size => 214, :readonly => true, class: "form-control"
+  .form-group
+    = label :proj,:description, 'Description: '
+    %br
+    = text_area :proj,:description, {:rows=>6, :cols=>213, :readonly => true, class: "form-control"}
+  .form-group
+    = label :proj, :impact, 'Impact: '
+    %br
+    = text_area :proj, :impact, {:rows=>6, :cols=>213, :readonly => true, class: "form-control"}
+  .form-group
+    = label :proj, :keywords, 'Keywords: '
+    %br
+    = text_field :proj, :keywords, {:size => 214, :readonly => true, class: "form-control"}
+  -if nil != @proj.collaborator_emails && !@proj.collaborator_emails.empty?
+    .form-group
+      = label :proj, :collaborator_emails, 'Emails of Collaborators: '
+      %br
+      = text_area :proj, :collaborator_emails, {:rows=>6, :cols=>213, :readonly => true, class: "form-control"}
+  .form-group
+    = label :proj, :begin_date, 'Begin Date: '
+    = date_select :proj, :begin_date, :disabled => true
+  .form-group
+    = label :proj, :end_date, 'End Date: '
+    = date_select :proj, :end_date, :disabled => true
+  .form-group
+    = label :proj, :group_id, 'Group: '
+    = select :proj, :group_id, @group_array, :selected=>@selected_group
+
+  -if !@proj.link.empty?
+    .form-group
+      = label :proj, :link, 'Http Web Link: '
+      %br
+      = text_field :proj, :link, :size => 214, :readonly => true, :type =>"url"
+      %br
+      <iframe class="embed-responsive-item" src="#{@proj.link}" height="500px" width="100%"></iframe>
+
+  -if @proj.pictures.size > 0
+    .form-group
+      = label :proj, :pictures, 'Pictures: '
+      .carousel.slide{:id=>"slide-images", :data => {:ride => "carousel"}}
+        %ol.hidden
+          %li.active{:data => {:target => "slide-images"}}
+          %li{:data => {:target => "slide-images"}}
+          %li{:data => {:target => "slide-images"}}
+        .carousel-inner
+          -@proj.pictures.each_with_index do |pic, index|
+            -if 0 == index
+              .item.active
+                %img{:src => pic.project_img.url, :alt => "Sorry, this project picture can not show", :style=>"width:100%"}/
+            -else
+              .item
+                %img{:src => pic.project_img.url, :alt => "Sorry, this project picture can not show", :style=>"width:100%"}/
+  
+        %a.left.carousel-control{:href => "#slide-images", :data => {:slide => "prev"}}
+          %span.glyphicon.glyphicon-chevron-left
+        %a.right.carousel-control{:href => "#slide-images", :data => {:slide => "next"}}
+          %span.glyphicon.glyphicon-chevron-right
+
+  -if @videosLinkArray.size > 0
+    .form-group
+      -@videosLinkArray.each_with_index do |video, index|
+        = label_tag 'Project Video ' + (index+1).to_s + ' : ' + @videosNameArray[index]
+        %br
+        //<iframe src="#{video}" controls="true" autobuffer="true" allowFullScreen="true" frameborder="0" height="500px" width="100%" ></iframe>
+        - if @isYoutubeVideo[index]==true
+          %iframe{:allowfullscreen => "true", :autobuffer => "true", :controls => "true", :frameborder => "0", :height => "500px", :src => video, :width => "100%"}
+        - else
+          %video{:controls => "", :height => "auto", :width => "100%"}
+            %source{:src => video, :type => "video/mp4"}
+            %source{:src => video, :type => "video/ogg"}
+            %source{:src => video, :type => "video/webm"}
+            %source{:src => video, :type => "video/3gp"}
+            %source{:src => video, :type => "video/ogv"}
+            %source{:src => video, :type => "video/flv"}
+
+%br
+= link_to 'Back to My Project List', projs_path
+

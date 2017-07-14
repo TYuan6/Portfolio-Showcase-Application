@@ -1,0 +1,28 @@
+<h1>Show Video</h1>
+<p>
+  <strong>Video Title:</strong>
+  <%= @video.title %>
+</p>
+<p>
+  <strong>Video Link:</strong>
+  <%= @video.link %>
+</p>
+<% if @video_flag==true %>
+  <iframe src="<%= @video_link %>" controls="true" autobuffer="true" allowFullScreen="true" frameborder="0" height="460px" width="100%" ></iframe>
+<% else %>
+  <video width="100%" height="auto" controls>
+    <source src="<%= @video_link %>" type="video/mp4">
+    <source src="<%= @video_link %>" type="video/ogg">
+    <source src="<%= @video_link %>" type="video/webm">
+    <source src="<%= @video_link %>" type="video/3gp">
+    <source src="<%= @video_link %>" type="video/ogv">
+    <source src="<%= @video_link %>" type="video/flv">
+  </video>
+<% end %>
+<br>
+<br>
+<%= link_to 'Edit', edit_video_path(@video) %>
+<br>
+<br>
+<%= link_to 'Back', videos_path(:project_id=>@project.id) %>
+
